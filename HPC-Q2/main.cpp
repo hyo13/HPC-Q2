@@ -53,9 +53,9 @@ int main(int argc, const char * argv[]) {
     TriMatrix M(v,Nx+1);
     for (int i=0;i<Nt;i++){
         u0new=M*u0;
-        u0=u0new;
         //output result at Nx=L/2 at each time step
-        cout<<u0new[(Nx+1)/2]<<" ";
+        cout<<u0[(Nx+1)/2]<<" ";
+        u0=u0new;
     }
     
     return 0;

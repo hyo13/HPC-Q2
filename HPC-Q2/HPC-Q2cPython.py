@@ -22,15 +22,16 @@ alpha=1
 #Compile C++ program
 subprocess.call('g++ main.cpp',shell=True)
 
+#Calculate RMS trendlines for Nx between 20 and 30 at increments of 2
 while (Nx<=30):
 
     #Initialize dt and RMS array
     DT=[]
     RMS=[]
     
-    #Calculate RMS Error for Nt between 800 and 2000 at increments of 50
+    #Calculate RMS Error for Nt between 2000 and 3000 at increments of 50
     Nt=2000
-    while (Nt<=3000):
+    while (Nt<=2400):
         #Initial Calculations
         dt=T/Nt
         DT.append(dt)
