@@ -57,6 +57,6 @@ plt.plot(TIME,Ut,'r--',label="Analytical Solution")
 #Plot Configurations
 plt.grid(b=None, which='major', axis='both')
 plt.legend(loc='best')
-plt.title('Numerical Solution vs Analytical Solution of 1D Heat Equation')
-plt.xlabel('Time (units)')
+plt.title('Solution vs Time')
+plt.xlabel('Time')
 plt.ylabel('Solution U')

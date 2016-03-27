@@ -82,6 +82,6 @@ while (Nx<=30):
 #Plot Configurations
 plt.grid(b=None, which='major', axis='both')
 plt.legend(loc='best')
-plt.title('Root Mean Squared Error of Forward Euler Time Integration')
-plt.xlabel('dt (units)')
-plt.ylabel('dx (units)')
+plt.title('RMS vs dt at Different Values of Nx')
+plt.xlabel('dt')
+plt.ylabel('RMS')
