@@ -10,20 +10,28 @@
 #include <vector>
 #include <math.h>
 #include "TriMatrix.h"
+#include <fstream>
 using namespace std;
 
-int main() {
+int main(int argc, const char * argv[]) {
     
     // INPUTS
-    double L=1;
-    double Nx=20;
-    double T=5;
-    double Nt=5000;
-    double alpha=1;
+    double L=atof(argv[1]);
+    double Nx=atof(argv[2]);
+    double T=atof(argv[3]);
+    double Nt=atof(argv[4]);
+    double alpha=atof(argv[5]);
+    //calculate minimum input time step for Forward Euler to converge with v = or < 0.5
+    double dx=L/Nx;
+    int Ntmin=2*alpha*T/(pow(dx,2));
+    //check that Nt is > or = Ntmax to make sure Forward Euler converges
+    if (Nt<Ntmin){
+        cout<<"ERROR: Input Nt is smaller than minimum time step allowed. Program Terminated."<<endl;
+        terminate();
+    }
     
     // INITIAL CALCULATIONS
     double dt=T/Nt;
-    double dx=L/Nx;
     double v=alpha*dt/pow(dx,2);
     
     // X-POSIION VECTOR
@@ -35,23 +43,21 @@ int main() {
     //INITIAL CONDITION
     vector <double> u0(x.size());
     u0[1]=0;
-    u0[x.size()]=0;
+    u0[Nx+1]=0;
     for (int i=1;i<x.size()-1;i++){
         u0[i]=x[i]*(1-x[i]);
     }
     
     //FORWARD EULER TIME INTEGRATION
-    vector <double> u0new(x.size());
-    TriMatrix M(v,x.size());
+    vector <double> u0new(Nx+1);
+    TriMatrix M(v,Nx+1);
     for (int i=0;i<Nt;i++){
         u0new=M*u0;
         u0=u0new;
     }
     
-    //OUTPUT RESULTS
-    for (int i=0;i<x.size();i++){
-        cout<<u0new[i]<<endl;
-    }
+    //OUTPUT RESULT AT L/2
+    cout<<u0new[(Nx+1)/2]<<endl;
     
     return 0;
 }

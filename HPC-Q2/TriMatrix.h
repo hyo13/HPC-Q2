@@ -2,7 +2,7 @@
 //  TriMatrix.h
 //  HPC-Q2
 //
-//  Created by hyo13 on 23/3/16.
+//  Created by hyo13 on 22/3/16.
 //  Copyright (c) 2016 hyo13. All rights reserved.
 //
 
