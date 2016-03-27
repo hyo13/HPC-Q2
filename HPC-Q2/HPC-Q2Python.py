@@ -16,7 +16,7 @@ import math
 L=1
 Nx=20
 T=1
-Nt=1000
+Nt=2000
 alpha=1
 
 #Initial Calculations
