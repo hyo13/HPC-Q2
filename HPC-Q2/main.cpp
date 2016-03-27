@@ -54,10 +54,9 @@ int main(int argc, const char * argv[]) {
     for (int i=0;i<Nt;i++){
         u0new=M*u0;
         u0=u0new;
+        //output result at Nx=L/2 at each time step
+        cout<<u0new[(Nx+1)/2]<<" ";
     }
-    
-    //OUTPUT RESULT AT L/2
-    cout<<u0new[(Nx+1)/2]<<endl;
     
     return 0;
 }
