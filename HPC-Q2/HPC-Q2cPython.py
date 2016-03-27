@@ -29,7 +29,7 @@ while (Nx<=30):
     DT=[]
     RMS=[]
     
-    #Calculate RMS Error for Nt between 2000 and 3000 at increments of 50
+    #Calculate RMS Error for Nt between 2000 and 2400 at increments of 50
     Nt=2000
     while (Nt<=2400):
         #Initial Calculations
